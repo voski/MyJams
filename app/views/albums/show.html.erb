@@ -1,0 +1,11 @@
+<h1><%= @album.name %></h1>
+<ol>
+  <% @album.tracks.order('id').each do |track| %>
+  <li>
+    <%= link_to "#{track.name}", track_url(track) %>
+  </li>
+  <% end %>
+</ol>
+<%= link_to "#{@album.band.name}", bands_url(@album.band) %>
+<%= link_to "edit", edit_album_url, method: :get %>
+<%= link_to "delete", album_url, method: :delete %>
