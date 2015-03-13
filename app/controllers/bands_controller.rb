@@ -38,9 +38,9 @@ class BandsController < ApplicationController
       flash[:error] = "Could not find band with id: #{params[:id]}"
     else
       flash.notice = "Successfuly deleted #{@band.name}"
-      @band.delete
+      @band.destroy
     end
-    
+
     redirect_to root_url
   end
 
