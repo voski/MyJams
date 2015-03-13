@@ -11,6 +11,7 @@ class TracksController < ApplicationController
   def create
 
     @track = Track.new(track_params)
+    @album = @track.album
     if @track.save
       flash.notice = "#{@track.name} successfully added to #{@track.album.name}"
       redirect_to album_url(@track.album)
