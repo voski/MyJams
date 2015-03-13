@@ -20,7 +20,7 @@ class BandsController < ApplicationController
   end
 
   def edit
-
+    @band = Band.find(params[:id])
   end
 
   def show
@@ -30,6 +30,15 @@ class BandsController < ApplicationController
   end
 
   def update
+    @band = Band.find(params[:id])
+    if @band.update(band_params)
+      flash.notice = "Updated band"
+      redirect_to band_url
+    else
+      flash.now[:errors] = @band.errors.full_messages
+      render :edit
+    end
+
   end
 
   def destroy
@@ -47,5 +56,6 @@ class BandsController < ApplicationController
   def band_params
     params.require(:band).permit(:name)
   end
+
 
 end
