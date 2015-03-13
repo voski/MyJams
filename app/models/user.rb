@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   after_initialize :ensure_session_token
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)
@@ -42,6 +43,6 @@ class User < ActiveRecord::Base
   end
 
   def ensure_session_token
-    self.session_token ||= reset_session_token!
+    self.session_token ||= User.generate_session_token
   end
 end

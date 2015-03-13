@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController
   def new
-    @user = User.new
-    render :new
+    if logged_in?
+      redirect_to bands_url
+    else
+      @user = User.new
+      render :new
+    end
   end
 
   def create
