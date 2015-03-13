@@ -1,5 +1,7 @@
 <footer>
-  <% if logged_in? %>
-    <%= button_to "Log Out #{current_user.email}", session_url, method: :delete %>
-  <% end %>
+  <div class=log_out>
+    <% if logged_in? %>
+      <%= button_to "Log Out #{current_user.email}", session_url, method: :delete %>
+    <% end %>
+  </div>
 </footer>

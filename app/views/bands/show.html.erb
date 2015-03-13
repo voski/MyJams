@@ -8,9 +8,9 @@
   </li>
   <% end %>
 </ol>
-
-
-<%= link_to "home", bands_url %>
-<%= link_to "new album", new_band_album_url(@band) , method: :get %>
-<%= link_to "edit", edit_band_url, method: :get %>
-<%= link_to "delete", band_url, method: :delete %>
+<div class="nav_bar">
+  <%= link_to "home", bands_url %>
+  <%= link_to "new album", new_band_album_url(@band) , method: :get %>
+  <%= link_to "edit", edit_band_url, method: :get %>
+  <%= link_to "delete", band_url, method: :delete %>
+</div>
