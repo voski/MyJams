@@ -33,6 +33,15 @@ class BandsController < ApplicationController
   end
 
   def destroy
+    @band = Band.find(params[:id])
+    if @band.nil?
+      flash[:error] = "Could not find band with id: #{params[:id]}"
+    else
+      flash.notice = "Successfuly deleted #{@band.name}"
+      @band.delete
+    end
+    
+    redirect_to root_url
   end
 
   def band_params
