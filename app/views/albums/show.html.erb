@@ -6,6 +6,7 @@
   </li>
   <% end %>
 </ol>
-<%= link_to "#{@album.band.name}", bands_url(@album.band) %>
+<%= link_to "#{@album.band.name}", band_url(@album.band) %>
+<%= link_to "new track", new_album_track_url(@album), method: :get %>
 <%= link_to "edit", edit_album_url, method: :get %>
 <%= link_to "delete", album_url, method: :delete %>
